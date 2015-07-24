@@ -7,6 +7,13 @@ let prefixes = {
 };
 
 class Prefixer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    let country = this.props.initialCountry || "Poland";
+    this.state = { country: country };
+  }
+
   countryItem(country, index) {
     return (
       <option value={country} key={index}>{country}</option>
@@ -14,12 +21,13 @@ class Prefixer extends React.Component {
   }
 
   render () {
+    let prefix = prefixes[this.state.country];
     return (
       <div className="form-horizontal">
         <div className="form-group">
           <label for="selectbox" className="col-sm-3 control-label">Country</label>
           <div className="col-sm-3">
-            <select className="form-control" id="selectbox">
+            <select className="form-control" id="selectbox" value={this.state.country}>
               {Object.keys(prefixes).map(this.countryItem)}
             </select>
           </div>
@@ -28,7 +36,7 @@ class Prefixer extends React.Component {
           <label for="input-text" className="col-sm-3 control-label">Phone number</label>
           <div className="col-sm-3">
             <div className="input-group">
-              <span className="input-group-addon">+48</span>
+              <span className="input-group-addon">{prefix}</span>
               <input type="text" className="form-control" id="input-text" />
             </div>
           </div>
