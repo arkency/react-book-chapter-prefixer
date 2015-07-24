@@ -12,6 +12,13 @@ class Prefixer extends React.Component {
 
     let country = this.props.initialCountry || "Poland";
     this.state = { country: country };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    let newCountry = e.target.value;
+    this.setState({ country: newCountry });
   }
 
   countryItem(country, index) {
@@ -27,7 +34,7 @@ class Prefixer extends React.Component {
         <div className="form-group">
           <label for="selectbox" className="col-sm-3 control-label">Country</label>
           <div className="col-sm-3">
-            <select className="form-control" id="selectbox" value={this.state.country}>
+            <select className="form-control" id="selectbox" onChange={this.handleChange} value={this.state.country}>
               {Object.keys(prefixes).map(this.countryItem)}
             </select>
           </div>
