@@ -1,26 +1,11 @@
-import 'normalize.css'
-import './styles.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import './styles.css';
 
-import debug from 'debug'
-import React from 'react'
-import Hello from './components/Hello'
+import debug from 'debug';
+import React from 'react';
+import Prefixer from './components/Prefixer';
 
-const log = debug('application:bootstrap')
+const APP_ROOT = document.createElement('div');
+document.body.appendChild(APP_ROOT);
 
-// Enable debug messages outside of production
-if (process.env.NODE_ENV !== 'production') {
-  debug.enable('application:*')
-}
-
-log('creating application node')
-const applicationNode = document.createElement('div')
-applicationNode.className = 'application'
-applicationNode.id = 'application'
-
-log('adding application node to body')
-document.body.appendChild(applicationNode)
-
-log('mounting application')
-React.render(<Hello/>, applicationNode, () => {
-  log('finished mounting application')
-})
+React.render(<Prefixer />, APP_ROOT);
