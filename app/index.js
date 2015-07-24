@@ -5,7 +5,14 @@ import debug from 'debug';
 import React from 'react';
 import Prefixer from './components/Prefixer';
 
-const APP_ROOT = document.createElement('div');
-document.body.appendChild(APP_ROOT);
+const ELEMENT1 = document.createElement('div');
+document.body.appendChild(ELEMENT1);
+React.render(<Prefixer />, ELEMENT1);
 
-React.render(<Prefixer />, APP_ROOT);
+const ELEMENT2 = document.createElement('div');
+document.body.appendChild(ELEMENT2);
+React.render(<Prefixer initialCountry={"Serbia"} />, ELEMENT2);
+
+const ELEMENT3 = document.createElement('div');
+document.body.appendChild(ELEMENT3);
+React.render(<Prefixer initialCountry={"Narnia"} />, ELEMENT3);
