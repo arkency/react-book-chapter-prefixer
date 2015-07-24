@@ -1,6 +1,18 @@
 import React from 'react';
 
+let prefixes = {
+    'Germany': '+49',
+    'Poland': '+48',
+    'Serbia': '+381'
+};
+
 class Prefixer extends React.Component {
+  countryItem(country, index) {
+    return (
+      <option value={country} key={index}>{country}</option>
+    );
+  }
+
   render () {
     return (
       <div className="form-horizontal">
@@ -8,7 +20,7 @@ class Prefixer extends React.Component {
           <label for="selectbox" className="col-sm-3 control-label">Country</label>
           <div className="col-sm-3">
             <select className="form-control" id="selectbox">
-              <option value="Poland">Poland</option>
+              {Object.keys(prefixes).map(this.countryItem)}
             </select>
           </div>
         </div>
@@ -25,5 +37,5 @@ class Prefixer extends React.Component {
     );
   }
 }
-    
+
 export default Prefixer;
