@@ -32,7 +32,7 @@ class Prefixer extends React.Component {
     return (
       <div className="form-horizontal">
         <div className="form-group">
-          <label for="selectbox" className="col-sm-3 control-label">Country</label>
+          <label htmlFor="selectbox" className="col-sm-3 control-label">Country</label>
           <div className="col-sm-3">
             <select className="form-control" id="selectbox" onChange={this.handleChange} value={this.state.country}>
               {Object.keys(prefixes).map(this.countryItem)}
@@ -40,7 +40,7 @@ class Prefixer extends React.Component {
           </div>
         </div>
         <div className="form-group">
-          <label for="input-text" className="col-sm-3 control-label">Phone number</label>
+          <label htmlFor="input-text" className="col-sm-3 control-label">Phone number</label>
           <div className="col-sm-3">
             <div className="input-group">
               <span className="input-group-addon">{prefix}</span>
