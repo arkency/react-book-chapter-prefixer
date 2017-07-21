@@ -1,4 +1,4 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './styles.css';
 
 import debug from 'debug';
